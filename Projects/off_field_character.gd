@@ -9,6 +9,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	self.z_index = self.global_position.y
 	var Player = get_parent().get_node("Player")
 	move_and_slide()
 	

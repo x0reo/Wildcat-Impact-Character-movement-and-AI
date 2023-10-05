@@ -34,7 +34,7 @@ func Physics_Update(delta: float):
 		
 	var direction = player.global_position - off_field_char.global_position
 	
-	if direction.length() > 450:
+	if direction.length() > 300:
 		Transitioned.emit(self, "follow")
 
 func decide_wander():

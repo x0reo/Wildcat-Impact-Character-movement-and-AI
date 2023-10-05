@@ -12,7 +12,7 @@ func Enter():
 func Physics_Update(delta: float):
 	var direction = player.global_position - off_field_character.global_position
 	
-	if direction.length() < 400:
+	if direction.length() < 200:
 		off_field_character.velocity = Vector2()
 		Transitioned.emit(self, "idle")
 	else:	

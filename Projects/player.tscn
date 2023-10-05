@@ -2,11 +2,8 @@
 
 [ext_resource type="Script" path="res://Player.gd" id="1_q1usr"]
 [ext_resource type="Texture2D" uid="uid://bq587fe3v0i7f" path="res://Animations/Cherry/Cherry_Idle_Anim.png" id="2_cydfh"]
-[ext_resource type="PackedScene" uid="uid://bldm1g65q8v2s" path="res://footsteps.tscn" id="2_yenqs"]
+[ext_resource type="Texture2D" uid="uid://bqec5er50qep2" path="res://icon.svg" id="2_jnbkp"]
 [ext_resource type="Texture2D" uid="uid://bxbusdyerkhpc" path="res://Animations/Cherry/Cherry_Run_Anim.png" id="3_4xd2c"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijnvn"]
-size = Vector2(83, 117)
 
 [sub_resource type="Animation" id="Animation_xe04b"]
 resource_name = "Cherry_Idle"
@@ -48,46 +45,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [8]
-}
-
-[sub_resource type="Animation" id="Animation_ouitc"]
-length = 0.001
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Marker2D/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [ExtResource("2_cydfh")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Marker2D/Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Marker2D/Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
 }
 
 [sub_resource type="Animation" id="Animation_l1awi"]
@@ -132,6 +89,46 @@ tracks/2/keys = {
 "values": [ExtResource("3_4xd2c")]
 }
 
+[sub_resource type="Animation" id="Animation_ouitc"]
+length = 0.001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("2_cydfh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyt6t"]
 _data = {
 "Cherry_Idle": SubResource("Animation_xe04b"),
@@ -139,17 +136,33 @@ _data = {
 "RESET": SubResource("Animation_ouitc")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijnvn"]
+size = Vector2(83, 117)
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_q1usr")
-footsteps = ExtResource("2_yenqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-y_sort_enabled = true
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_ijnvn")
-one_way_collision = true
-one_way_collision_margin = 0.0
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(0.466667, 0.466667, 0.466667, 0.380392)
+position = Vector2(0, 56)
+amount = 10
+lifetime = 0.5
+randomness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_max = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.207843)
+position = Vector2(0, 56)
+scale = Vector2(0.625, 0.2)
+skew = -0.785398
+texture = ExtResource("2_jnbkp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 0.5
@@ -157,12 +170,19 @@ libraries = {
 "": SubResource("AnimationLibrary_hyt6t")
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_ijnvn")
+one_way_collision_margin = 0.0
+
 [node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-8, -56)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
 position = Vector2(-15, -25)
-scale = Vector2(2.9375, 2.9375)
+scale = Vector2(5, 5)
 texture = ExtResource("2_cydfh")
 hframes = 8
-frame = 11
+frame = 4

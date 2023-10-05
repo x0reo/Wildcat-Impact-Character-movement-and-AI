@@ -12,14 +12,14 @@ size = Vector2(0.997712, 0.994475)
 
 [node name="World" type="Node2D"]
 
-[node name="OffField_Character" parent="." instance=ExtResource("2_ji7lp")]
-position = Vector2(-333, 219)
-
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_1jeds")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
+
+[node name="OffField_Character" parent="." instance=ExtResource("2_ji7lp")]
+position = Vector2(-333, 219)
 
 [node name="OffField_Character2" parent="." instance=ExtResource("2_ji7lp")]
 position = Vector2(229, 222)
@@ -33,6 +33,8 @@ scale = Vector2(109.25, 90.5)
 texture = SubResource("CanvasTexture_mgexg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 3
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_s38on")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]

@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@export var footsteps : PackedScene
-
 var maxspeed = 350
 var speed = 250
 
@@ -11,6 +9,7 @@ func _ready():
 	$AnimationPlayer.play("Cherry_Idle")
 	
 func _physics_process(_delta: float)-> void:
+	self.z_index = self.global_position.y
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	
 	velocity.x = move_toward(velocity.x, maxspeed * direction.x, speed)
