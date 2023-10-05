@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bldm1g65q8v2s"]
+
+[ext_resource type="Texture2D" uid="uid://bqec5er50qep2" path="res://icon.svg" id="1_ajjk6"]
+[ext_resource type="Script" path="res://footsteps.gd" id="2_pc8ha"]
+
+[node name="footsteps" type="CPUParticles2D"]
+amount = 2
+lifetime = 7.0
+speed_scale = 7.0
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 30
+texture = ExtResource("1_ajjk6")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, 0)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 11.0
+initial_velocity_max = 11.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+color = Color(15, 15, 15, 0.2)
+hue_variation_min = -1.0
+hue_variation_max = -1.0
+script = ExtResource("2_pc8ha")
