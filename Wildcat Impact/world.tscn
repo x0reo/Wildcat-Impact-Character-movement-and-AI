@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3dkoyyr7mbwd"]
+
+[ext_resource type="PackedScene" uid="uid://c3mrdecke5d73" path="res://player.tscn" id="1_1jeds"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="2_f6o4e"]
+[ext_resource type="PackedScene" uid="uid://j7lqyystw7fw" path="res://off_field_character.tscn" id="2_ji7lp"]
+[ext_resource type="PackedScene" uid="uid://c1o1rhe3e46ji" path="res://enemy.tscn" id="3_h01jt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mgexg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s38on"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0we6"]
+size = Vector2(0.997712, 1.00258)
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_1jeds")]
+
+[node name="OffField_Character" parent="." instance=ExtResource("2_ji7lp")]
+position = Vector2(-333, 219)
+
+[node name="OffField_Character2" parent="." instance=ExtResource("2_ji7lp")]
+position = Vector2(229, 222)
+
+[node name="OffField_Character3" parent="." instance=ExtResource("2_ji7lp")]
+position = Vector2(-3, 303)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-410.375, -136.875)
+scale = Vector2(543.25, 374.25)
+texture = SubResource("CanvasTexture_mgexg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_s38on")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-0.00114411, -0.00405335)
+shape = SubResource("RectangleShape2D_x0we6")
+
+[node name="Enemy" parent="." instance=ExtResource("3_h01jt")]
+position = Vector2(968, 81)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_h01jt")]
+position = Vector2(-1469, 111)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_h01jt")]
+position = Vector2(284, -725)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)
+position_smoothing_enabled = true
+script = ExtResource("2_f6o4e")

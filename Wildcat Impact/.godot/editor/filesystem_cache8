@@ -1,0 +1,31 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1696529043
+Camera2D.gd::GDScript::-1::1696522497::0::1::::<>Camera2D<>::
+CharacterBody2D.gd::GDScript::-1::1696507709::0::1::::<>CharacterBody2D<>::
+character_body_2d.tscn::PackedScene::6541234628885878414::1696507709::0::1::::<><>::res://CharacterBody2D.gd<>uid://bqec5er50qep2
+enemy.gd::GDScript::-1::1696525688::0::1::::<>CharacterBody2D<>::
+enemy.tscn::PackedScene::6628261965961574110::1696526619::0::1::::<><>::uid://dmvdqjnxoe6dk::::res://Unit_Marker.png<>uid://bqec5er50qep2::::res://icon.svg<>res://enemy.gd<>uid://c8ihwvv13bsm2::::res://Enemy Selection/selection_area_2d.tscn
+export_presets.cfg::TextFile::-1::1696507709::0::1::::<><>::
+icon.svg::CompressedTexture2D::3517874938472718905::1696507709::1696508262::1::::<><>::
+off_field_character.gd::GDScript::-1::1696515796::0::1::::<>CharacterBody2D<>::
+off_field_character.tscn::PackedScene::698457438974953056::1696525161::0::1::::<><>::res://off_field_character.gd<>uid://bqec5er50qep2
+Player.gd::GDScript::-1::1696507709::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::6763939282202463448::1696526619::0::1::::<><>::res://Player.gd<>uid://dmvdqjnxoe6dk::::res://Unit_Marker.png<>uid://bq587fe3v0i7f::::res://Animations/Cherry/Cherry_Idle_Anim.png<>uid://bqec5er50qep2::::res://icon.svg<>uid://bxbusdyerkhpc::::res://Animations/Cherry/Cherry_Run_Anim.png
+SelectionArea2D.gd::GDScript::-1::1696516447::0::1::::<>Area2D<>::
+Unit_Marker.png::CompressedTexture2D::8045091325108250124::1696507709::1696508262::1::::<><>::
+world.tscn::PackedScene::4358534908313868275::1696526619::0::1::::<><>::uid://c3mrdecke5d73::::res://player.tscn<>res://Camera2D.gd<>uid://j7lqyystw7fw::::res://off_field_character.tscn<>uid://c1o1rhe3e46ji::::res://enemy.tscn
+::res://Animations/::1696507709
+::res://Animations/Cherry/::1696508262
+Cherry_Idle_Anim.png::CompressedTexture2D::3573434590786878717::1696507709::1696508262::1::::<><>::
+Cherry_Run_Anim.png::CompressedTexture2D::4004075144117740540::1696507709::1696508262::1::::<><>::
+::res://Enemy Selection/::1696515596
+selection_area_2d.tscn::PackedScene::7106053672539066691::1696515596::0::1::::<><>::res://SelectionArea2D.gd
+::res://Scripts/::1696522863
+::res://Scripts/Enemy States/::1696524165
+EnemyChase.gd::GDScript::-1::1696524165::0::1::::EnemyChase<>State<>::
+EnemyIdle.gd::GDScript::-1::1696524090::0::1::::EnemyIdle<>State<>::
+::res://Scripts/States/::1696525472
+Follow.gd::GDScript::-1::1696525472::0::1::::Follow<>State<>::
+Idle.gd::GDScript::-1::1696507709::0::1::::Idle<>State<>::
+StateMachine.gd::GDScript::-1::1696507709::0::1::::<>Node<>::
+States.gd::GDScript::-1::1696507709::0::1::::State<>Node<>::

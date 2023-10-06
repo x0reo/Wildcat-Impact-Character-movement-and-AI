@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1o1rhe3e46ji"]
+
+[ext_resource type="Texture2D" uid="uid://dmvdqjnxoe6dk" path="res://Unit_Marker.png" id="1_1dfy8"]
+[ext_resource type="Texture2D" uid="uid://bqec5er50qep2" path="res://icon.svg" id="1_7iig1"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_rgct1"]
+[ext_resource type="PackedScene" uid="uid://c8ihwvv13bsm2" path="res://Enemy Selection/selection_area_2d.tscn" id="4_h3xv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olroy"]
+size = Vector2(120, 120)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_rgct1")
+
+[node name="Unit_Marker" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.294118)
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(0, 56)
+scale = Vector2(10, 5)
+texture = ExtResource("1_1dfy8")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+texture = ExtResource("1_7iig1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("RectangleShape2D_olroy")
+
+[node name="SelectionArea2D" parent="." instance=ExtResource("4_h3xv5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SelectionArea2D"]
+shape = SubResource("RectangleShape2D_olroy")
+
+[connection signal="selection_toggled" from="SelectionArea2D" to="." method="_on_selection_area_2d_selection_toggled"]

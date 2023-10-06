@@ -1,0 +1,13 @@
+EnemyChase
+EnemyIdle
+Node
+Camera2D
+CollisionShape2D
+Area2D
+Marker2D
+Sprite2D
+CharacterBody2D
+Timer
+NavigationAgent2D
+LightOccluder2D
+StaticBody2D
