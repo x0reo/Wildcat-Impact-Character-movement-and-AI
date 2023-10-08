@@ -1,5 +1,7 @@
+res://player.tscn
 res://world.tscn
 res://enemy.tscn
-res://player.tscn
 res://off_field_character.tscn
 res://Player.gd
+res://enemy.gd
+res://Camera2D.gd

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxbusdyerkhpc"
-path="res://.godot/imported/Cherry_Run_Anim.png-d180b8550b1f560dfca03e2692ea6113.ctex"
+uid="uid://dw0qcmdfsy3b7"
+path="res://.godot/imported/Cherry_Idle_Anim.png-86dc26921bdc7b8b221b4d6c827aa568.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/Cherry/Cherry_Run_Anim.png"
-dest_files=["res://.godot/imported/Cherry_Run_Anim.png-d180b8550b1f560dfca03e2692ea6113.ctex"]
+source_file="res://Animations/Cherry_Idle_Anim.png"
+dest_files=["res://.godot/imported/Cherry_Idle_Anim.png-86dc26921bdc7b8b221b4d6c827aa568.ctex"]
 
 [params]
 

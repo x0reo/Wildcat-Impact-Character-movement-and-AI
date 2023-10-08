@@ -5,6 +5,8 @@ var speed = 250
 
 @onready var position2D = $Marker2D
 
+var targetedEnemy = null
+
 func _ready():
 	$AnimationPlayer.play("Cherry_Idle")
 		
@@ -22,16 +24,27 @@ func _physics_process(_delta: float)-> void:
 	if direction:
 		if $AnimationPlayer.current_animation != "Cherry_BasicAttack":
 			$AnimationPlayer.play("Cherry_Run")
-			
-		if direction.x > 0:
-			position2D.scale.x = 1
-		elif direction.x < 0:
-			position2D.scale.x = -1
+		
+		if $AnimationPlayer.current_animation != "Cherry_BasicAttack":
+			if direction.x > 0:
+				position2D.scale.x = 1
+			elif direction.x < 0:
+				position2D.scale.x = -1
 	else:
 		if $AnimationPlayer.current_animation != "Cherry_BasicAttack":
 			$AnimationPlayer.play("Cherry_Idle")
 	
 	if Input.is_action_just_pressed("basic_attack"):
 		$AnimationPlayer.play("Cherry_BasicAttack")
+		
+		if getTargetedEnemy() != null:
+			if getTargetedEnemy().global_position > global_position:
+				position2D.scale.x = 1
+			else:
+				position2D.scale.x = -1
 	
-	
+func setTargetedEnemy(enemy):
+	targetedEnemy = enemy
+
+func getTargetedEnemy():
+	return targetedEnemy

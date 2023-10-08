@@ -3,26 +3,24 @@ extends CharacterBody2D
 @onready var marker = $Unit_Marker
 @onready var camera : Camera2D
 @onready var player : CharacterBody2D
-@onready var target : bool
 
 @export var move_speed := 150.0
 
 func _ready():
 	marker.visible = false
-	target = false
-
+	camera = get_parent().get_node("Camera2D")
+	player = get_parent().get_node("Player")
+	
 func _on_selection_area_2d_selection_toggled(selection):
 	
-	camera = get_parent().get_node("Camera2D")
 	marker.visible = selection
 	camera.tracking = selection
 	
-func _physics_process(_delta: float)-> void:
-	var camera = get_parent().get_node("Camera2D")
-	var player = get_parent().get_node("Player")
+	if selection:
+		camera.setTargetedEnemy(self)
+		player.setTargetedEnemy(self)
 	
-	if camera.tracking and marker.visible:
-		camera.global_position = (player.global_position + self.global_position) / 2
+func _physics_process(_delta: float)-> void:
 		
 	var direction = player.global_position - global_position
 	

@@ -1,64 +1,106 @@
-[gd_scene load_steps=14 format=3 uid="uid://j7lqyystw7fw"]
+[gd_scene load_steps=17 format=3 uid="uid://j7lqyystw7fw"]
 
 [ext_resource type="Script" path="res://off_field_character.gd" id="1_gnv5n"]
 [ext_resource type="Texture2D" uid="uid://bqec5er50qep2" path="res://icon.svg" id="2_e2hfm"]
-[ext_resource type="Texture2D" uid="uid://bq587fe3v0i7f" path="res://Animations/Cherry/Cherry_Idle_Anim.png" id="2_oukjq"]
 [ext_resource type="Texture2D" uid="uid://dmvdqjnxoe6dk" path="res://Unit_Marker.png" id="2_ropjy"]
-[ext_resource type="Texture2D" uid="uid://bxbusdyerkhpc" path="res://Animations/Cherry/Cherry_Run_Anim.png" id="3_fhffy"]
 [ext_resource type="Script" path="res://Scripts/States/StateMachine.gd" id="3_k5oy3"]
 [ext_resource type="Script" path="res://Scripts/States/Idle.gd" id="4_1u6fb"]
+[ext_resource type="Texture2D" uid="uid://c2wl21gxismab" path="res://Animations/Cherry/Cherry_Attack_Anim.png" id="4_4w3ki"]
+[ext_resource type="Texture2D" uid="uid://dxqe0ohgp6lj6" path="res://Animations/Cherry_Run_Anim.png" id="5_4sig6"]
 [ext_resource type="Script" path="res://Scripts/States/Follow.gd" id="5_vqkmm"]
+[ext_resource type="Texture2D" uid="uid://dw0qcmdfsy3b7" path="res://Animations/Cherry_Idle_Anim.png" id="6_wn0kf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yh4lb"]
 size = Vector2(80, 110)
 
-[sub_resource type="Animation" id="Animation_xe04b"]
-resource_name = "Cherry_Idle"
-length = 0.4
-loop_mode = 1
-step = 0.05
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vagji"]
+
+[sub_resource type="Animation" id="Animation_nnd6c"]
+resource_name = "Cherry_BasicAttack"
+length = 0.64
+step = 0.04
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/0/path = NodePath("Marker2D/Sprite2D:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
+"values": [16]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Marker2D/Sprite2D:texture")
+tracks/1/path = NodePath("Marker2D/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_oukjq")]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Marker2D/Sprite2D:hframes")
+tracks/2/path = NodePath("Marker2D/Sprite2D:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [ExtResource("4_4w3ki")]
 }
 
-[sub_resource type="Animation" id="Animation_j1lq0"]
+[sub_resource type="Animation" id="Animation_m32ym"]
+resource_name = "Cherry_Idle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.00623946),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_wn0kf")]
+}
+
+[sub_resource type="Animation" id="Animation_oqqpt"]
 resource_name = "Cherry_Run"
-length = 0.36
+length = 0.6
 loop_mode = 1
-step = 0.03
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -78,7 +120,7 @@ tracks/1/path = NodePath("Marker2D/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21, 0.24, 0.27, 0.3, 0.33),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -93,7 +135,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_fhffy")]
+"values": [ExtResource("5_4sig6")]
 }
 
 [sub_resource type="Animation" id="Animation_ouitc"]
@@ -109,7 +151,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ExtResource("2_oukjq")]
+"values": [SubResource("CompressedTexture2D_vagji")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -138,8 +180,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyt6t"]
 _data = {
-"Cherry_Idle": SubResource("Animation_xe04b"),
-"Cherry_Run": SubResource("Animation_j1lq0"),
+"Cherry_BasicAttack": SubResource("Animation_nnd6c"),
+"Cherry_Idle": SubResource("Animation_m32ym"),
+"Cherry_Run": SubResource("Animation_oqqpt"),
 "RESET": SubResource("Animation_ouitc")
 }
 
@@ -188,11 +231,11 @@ position = Vector2(0, -64)
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
 position = Vector2(-32, -16)
 scale = Vector2(5, 5)
-texture = ExtResource("2_oukjq")
+texture = SubResource("CompressedTexture2D_vagji")
+offset = Vector2(20, 0)
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_hyt6t")
 }
