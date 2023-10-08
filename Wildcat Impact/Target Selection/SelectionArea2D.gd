@@ -23,7 +23,7 @@ func _make_exclusive():
 		return
 	get_tree().call_group("selected", "set_selected", false)
 	
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	if event.is_action_pressed(selection_action):
 		set_selected(not selected)
 

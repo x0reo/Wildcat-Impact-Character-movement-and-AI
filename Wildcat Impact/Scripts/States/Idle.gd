@@ -21,20 +21,20 @@ func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	randomize_wander()
 	
-func Update(delta: float):
+func Update(delta: float)-> void:
 	if wander_time > 0:
 		wander_time -= delta
 	
 	else:
 		randomize_wander()
 
-func Physics_Update(delta: float):
+func Physics_Update(_delta: float)-> void:
 	if off_field_char:
 		off_field_char.velocity = move_direction * move_speed
 		
 	var direction = player.global_position - off_field_char.global_position
 	
-	if direction.length() > 300:
+	if direction.length() > 350:
 		Transitioned.emit(self, "follow")
 
 func decide_wander():

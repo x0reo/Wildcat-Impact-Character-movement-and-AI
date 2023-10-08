@@ -1,10 +1,52 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3mrdecke5d73"]
+[gd_scene load_steps=13 format=3 uid="uid://c3mrdecke5d73"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_q1usr"]
 [ext_resource type="Texture2D" uid="uid://dmvdqjnxoe6dk" path="res://Unit_Marker.png" id="2_1gn7o"]
 [ext_resource type="Texture2D" uid="uid://bq587fe3v0i7f" path="res://Animations/Cherry/Cherry_Idle_Anim.png" id="2_cydfh"]
 [ext_resource type="Texture2D" uid="uid://bqec5er50qep2" path="res://icon.svg" id="2_jnbkp"]
 [ext_resource type="Texture2D" uid="uid://bxbusdyerkhpc" path="res://Animations/Cherry/Cherry_Run_Anim.png" id="3_4xd2c"]
+[ext_resource type="Texture2D" uid="uid://c2wl21gxismab" path="res://Animations/Cherry/Cherry_Attack_Anim.png" id="6_odhri"]
+
+[sub_resource type="Animation" id="Animation_nnd6c"]
+resource_name = "Cherry_BasicAttack"
+length = 0.64
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36, 0.4, 0.44, 0.48, 0.52, 0.56, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_odhri")]
+}
 
 [sub_resource type="Animation" id="Animation_xe04b"]
 resource_name = "Cherry_Idle"
@@ -132,6 +174,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hyt6t"]
 _data = {
+"Cherry_BasicAttack": SubResource("Animation_nnd6c"),
 "Cherry_Idle": SubResource("Animation_xe04b"),
 "Cherry_Run": SubResource("Animation_l1awi"),
 "RESET": SubResource("Animation_ouitc")
@@ -144,7 +187,7 @@ size = Vector2(83, 117)
 motion_mode = 1
 script = ExtResource("1_q1usr")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Unit_Marker" type="Sprite2D" parent="."]
 modulate = Color(0.415686, 0.721569, 0.996078, 0.294118)
 position = Vector2(0, 56)
 scale = Vector2(10, 5)
@@ -164,7 +207,7 @@ spread = 10.0
 gravity = Vector2(0, 0)
 scale_amount_max = 25.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.207843)
 position = Vector2(-3.8147e-06, 56)
 scale = Vector2(0.625, 0.2)

@@ -7,9 +7,11 @@ var speed = 250
 
 func _ready():
 	$AnimationPlayer.play("Cherry_Idle")
-	
+		
 func _physics_process(_delta: float)-> void:
+	
 	self.z_index = self.global_position.y
+	
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	
 	velocity.x = move_toward(velocity.x, maxspeed * direction.x, speed)
@@ -17,15 +19,19 @@ func _physics_process(_delta: float)-> void:
 	
 	move_and_slide()
 	
-	if velocity.length() > 0:
-		$AnimationPlayer.play("Cherry_Run")
+	if direction:
+		if $AnimationPlayer.current_animation != "Cherry_BasicAttack":
+			$AnimationPlayer.play("Cherry_Run")
+			
+		if direction.x > 0:
+			position2D.scale.x = 1
+		elif direction.x < 0:
+			position2D.scale.x = -1
 	else:
-		$AnimationPlayer.play("Cherry_Idle")
-
+		if $AnimationPlayer.current_animation != "Cherry_BasicAttack":
+			$AnimationPlayer.play("Cherry_Idle")
 	
-	if direction.x > 0:
-		position2D.scale.x = 1
-	elif direction.x < 0:
-		position2D.scale.x = -1
+	if Input.is_action_just_pressed("basic_attack"):
+		$AnimationPlayer.play("Cherry_BasicAttack")
 	
 	

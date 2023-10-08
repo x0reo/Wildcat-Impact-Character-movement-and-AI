@@ -8,9 +8,8 @@ var speed = randf_range(200, 450)
 func _ready():
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta: float)-> void:
 	self.z_index = self.global_position.y
-	var Player = get_parent().get_node("Player")
 	move_and_slide()
 	
 	if velocity.length() > 0:
